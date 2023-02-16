@@ -13,3 +13,16 @@ dependencies {
     api libraries.barcodescanner_core
     api libraries.zxing_core
 }
+
+task deleteZxingAar(type: Delete) {
+    delete '../libs/aars/barcodescanner-zxing-2.0.0.aar'
+}
+
+task createZxingAar(type: Copy) {
+    from('build\\outputs\\aar/')
+    into('../libs/aars/')
+    include('zxing-release.aar')
+    rename('zxing-release.aar', 'barcodescanner-zxing-2.0.0.aar')
+}
+
+createZxingAar.dependsOn(deleteZxingAar, build)
