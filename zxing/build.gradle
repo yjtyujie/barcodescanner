@@ -25,4 +25,8 @@ task createZxingAar(type: Copy) {
     rename('zxing-release.aar', 'barcodescanner-zxing-2.0.0.aar')
 }
 
+android {
+    namespace 'me.dm7.barcodescanner.zxing'
+}
+
 createZxingAar.dependsOn(deleteZxingAar, build)
