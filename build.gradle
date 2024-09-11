@@ -7,8 +7,8 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.3.1'
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
+        classpath 'com.android.tools.build:gradle:3.6.4'
+//        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
     }
 }
@@ -96,7 +96,7 @@ subprojects {
                     }
                 }
 
-                apply plugin: 'com.jfrog.bintray'
+//                apply plugin: 'com.jfrog.bintray'
 
                 version = '1.9.13'
 
@@ -117,33 +117,29 @@ subprojects {
                     archives sourcesJar
                 }
 
-                bintray {
-                    user = properties.getProperty("bintray.user")
-                    key = properties.getProperty("bintray.apikey")
-
-                    configurations = ['archives']
-                    pkg {
-                        repo = 'maven'
-                        name = 'me.dm7.barcodescanner:' + project.pomArtifactId
-                        desc = 'Barcode Scanner Libraries for Android'
-                        websiteUrl = 'https://github.com/dm77/barcodescanner'
-                        vcsUrl = 'https://github.com/dm77/barcodescanner.git'
-                        licenses = ["Apache-2.0"]
-                        publish = true
-                        publicDownloadNumbers = true
-                        version {
-                            desc = 'Barcode Scanner Libraries for Android'
-                            gpg {
-                                sign = false
-                            }
-                        }
-                    }
-                }
+//                bintray {
+//                    user = properties.getProperty("bintray.user")
+//                    key = properties.getProperty("bintray.apikey")
+//
+//                    configurations = ['archives']
+//                    pkg {
+//                        repo = 'maven'
+//                        name = 'me.dm7.barcodescanner:' + project.pomArtifactId
+//                        desc = 'Barcode Scanner Libraries for Android'
+//                        websiteUrl = 'https://github.com/dm77/barcodescanner'
+//                        vcsUrl = 'https://github.com/dm77/barcodescanner.git'
+//                        licenses = ["Apache-2.0"]
+//                        publish = true
+//                        publicDownloadNumbers = true
+//                        version {
+//                            desc = 'Barcode Scanner Libraries for Android'
+//                            gpg {
+//                                sign = false
+//                            }
+//                        }
+//                    }
+//                }
             }
         }
     }
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '4.10.1'
 }
