@@ -2,12 +2,12 @@ apply from: 'dependencies.gradle'
 
 buildscript {
     repositories {
-        jcenter()
         google()
+        mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.6.4'
+        classpath 'com.android.tools.build:gradle:4.2.2'
 //        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
     }
@@ -19,7 +19,7 @@ allprojects {
 
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 
     ext {
@@ -33,7 +33,6 @@ subprojects {
         if(ext.pluginContainer.hasPlugin("com.android.application") || ext.pluginContainer.hasPlugin("com.android.library")) {
             android {
                 compileSdkVersion versions.compile_sdk
-                buildToolsVersion versions.build_tools
 
                 android {
                     lintOptions {
