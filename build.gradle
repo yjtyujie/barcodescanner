@@ -7,7 +7,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.6.0'
+        classpath 'com.android.tools.build:gradle:8.6.1'
 //        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
     }
@@ -54,73 +54,73 @@ subprojects {
             }
         }
 
-        Properties properties = new Properties()
-        properties.load(project.rootProject.file('local.properties').newDataInputStream())
-        def bintrayUser = properties.getProperty('bintray.user')
-        def bintrayApikey = properties.getProperty('bintray.apikey')
-
-        if(project.isLibrary && bintrayUser?.trim() && bintrayApikey?.trim()) {
-            configure(project) {
-                apply plugin: 'com.github.dcendents.android-maven'
-                group = project.group                               // Maven Group ID for the artifact
-
-                install {
-                    repositories.mavenInstaller {
-                        pom.project {
-                            name project.pomName
-                            version project.version
-                            groupId project.group
-                            packaging project.pomPackaging
-                            artifactId project.pomArtifactId
-                            description project.pomDescription
-                            url 'https://github.com/dm77/barcodescanner'
-
-                            scm {
-                                url 'scm:git@github.com:dm77/barcodescanner.git'
-                                connection 'scm:git@github.com:dm77/barcodescanner.git'
-                                developerConnection 'scm:git@github.com:dm77/barcodescanner.git'
-                            }
-
-                            licenses {
-                                license {
-                                    name 'The Apache Software License, Version 2.0'
-                                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                                    distribution 'repo'
-                                }
-                            }
-
-                            developers {
-                                developer {
-                                    id 'dm77'
-                                    name 'Dushyanth Maguluru'
-                                    email 'dushyanth.maguluru@gmail.com'
-                                }
-                            }
-                        }
-                    }
-                }
-
+//        Properties properties = new Properties()
+//        properties.load(project.rootProject.file('local.properties').newDataInputStream())
+//        def bintrayUser = properties.getProperty('bintray.user')
+//        def bintrayApikey = properties.getProperty('bintray.apikey')
+//
+//        if(project.isLibrary && bintrayUser?.trim() && bintrayApikey?.trim()) {
+//            configure(project) {
+//                apply plugin: 'com.github.dcendents.android-maven'
+//                group = project.group                               // Maven Group ID for the artifact
+//
+//                install {
+//                    repositories.mavenInstaller {
+//                        pom.project {
+//                            name project.pomName
+//                            version project.version
+//                            groupId project.group
+//                            packaging project.pomPackaging
+//                            artifactId project.pomArtifactId
+//                            description project.pomDescription
+//                            url 'https://github.com/dm77/barcodescanner'
+//
+//                            scm {
+//                                url 'scm:git@github.com:dm77/barcodescanner.git'
+//                                connection 'scm:git@github.com:dm77/barcodescanner.git'
+//                                developerConnection 'scm:git@github.com:dm77/barcodescanner.git'
+//                            }
+//
+//                            licenses {
+//                                license {
+//                                    name 'The Apache Software License, Version 2.0'
+//                                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+//                                    distribution 'repo'
+//                                }
+//                            }
+//
+//                            developers {
+//                                developer {
+//                                    id 'dm77'
+//                                    name 'Dushyanth Maguluru'
+//                                    email 'dushyanth.maguluru@gmail.com'
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//
 //                apply plugin: 'com.jfrog.bintray'
-
-                version = '1.9.13'
-
-                if (project.hasProperty("android")) { // Android libraries
-                    task sourcesJar(type: Jar) {
-                        classifier = 'sources'
-                        from android.sourceSets.main.java.srcDirs
-                    }
-                } else { // Java libraries
-                    task sourcesJar(type: Jar, dependsOn: classes) {
-                        classifier = 'sources'
-                        from sourceSets.main.allSource
-                    }
-                }
-
-
-                artifacts {
-                    archives sourcesJar
-                }
-
+//
+//                version = '1.9.13'
+//
+//                if (project.hasProperty("android")) { // Android libraries
+//                    task sourcesJar(type: Jar) {
+//                        classifier = 'sources'
+//                        from android.sourceSets.main.java.srcDirs
+//                    }
+//                } else { // Java libraries
+//                    task sourcesJar(type: Jar, dependsOn: classes) {
+//                        classifier = 'sources'
+//                        from sourceSets.main.allSource
+//                    }
+//                }
+//
+//
+//                artifacts {
+//                    archives sourcesJar
+//                }
+//
 //                bintray {
 //                    user = properties.getProperty("bintray.user")
 //                    key = properties.getProperty("bintray.apikey")
@@ -143,7 +143,7 @@ subprojects {
 //                        }
 //                    }
 //                }
-            }
-        }
+//            }
+//        }
     }
 }
