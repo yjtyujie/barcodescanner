@@ -9,8 +9,8 @@ dependencies {
 }
 
 android {
+    namespace 'me.dm7.barcodescanner.zxing.sample'
     defaultConfig {
         applicationId "${project.group}.zxing.sample"
     }
-    namespace 'me.dm7.barcodescanner.zxing.sample'
 }

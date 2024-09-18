@@ -1,4 +1,7 @@
-apply plugin: 'com.android.library'
+plugins {
+    id "com.android.library"
+    id "maven-publish"
+}
 
 ext {
     isLibrary = true
@@ -14,19 +17,28 @@ dependencies {
     api libraries.zxing_core
 }
 
-task deleteZxingAar(type: Delete) {
-    delete '../libs/aars/barcodescanner-zxing-2.0.0.aar'
-}
-
-task createZxingAar(type: Copy) {
-    from('build\\outputs\\aar/')
-    into('../libs/aars/')
-    include('zxing-release.aar')
-    rename('zxing-release.aar', 'barcodescanner-zxing-2.0.0.aar')
-}
-
 android {
     namespace 'me.dm7.barcodescanner.zxing'
+
+    publishing {
+        multipleVariants {
+            allVariants()
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
 }
 
-createZxingAar.dependsOn(deleteZxingAar, build)
+publishing {
+    publications {
+        allVariants(MavenPublication) {
+            afterEvaluate {
+                from components.default
+            }
+        }
+    }
+
+    repositories {
+
+    }
+}

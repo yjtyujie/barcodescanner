@@ -14,7 +14,7 @@ buildscript {
 }
 
 allprojects {
-    group = 'me.dm7.barcodescanner'
+    group = 'xyz.yjtan.barcodescanner'
     version = '1.9.13'
 
     repositories {
@@ -40,8 +40,8 @@ subprojects {
                     }
 
                     compileOptions {
-                        sourceCompatibility JavaVersion.VERSION_11
-                        targetCompatibility JavaVersion.VERSION_11
+                        sourceCompatibility JavaVersion.VERSION_1_8
+                        targetCompatibility JavaVersion.VERSION_1_8
                     }
                 }
 
@@ -100,7 +100,7 @@ subprojects {
 //                    }
 //                }
 //
-//                apply plugin: 'com.jfrog.bintray'
+////                apply plugin: 'com.jfrog.bintray'
 //
 //                version = '1.9.13'
 //
@@ -120,7 +120,7 @@ subprojects {
 //                artifacts {
 //                    archives sourcesJar
 //                }
-//
+
 //                bintray {
 //                    user = properties.getProperty("bintray.user")
 //                    key = properties.getProperty("bintray.apikey")
